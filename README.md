@@ -12,7 +12,7 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Definição do Banco de dAOS
+- [x] Definição do Banco de Dados
 - [ ] Back-end
 - [ ] Front-end
 - [ ] Publicação em Nuvem
