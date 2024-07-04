@@ -13,9 +13,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -35,20 +32,15 @@ public class Cliente {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @NotBlank
     private String nomeCliente;
 
-    @NotNull
     private LocalDate dataNascimento;
 
     @JsonProperty(access = Access.READ_ONLY)
     private boolean ativo;
     
-    @Email
-    @NotBlank
     private String email;
     
-    @NotBlank
     private String telefone;
 
     public Cliente(DtoCadastroCliente dados) {

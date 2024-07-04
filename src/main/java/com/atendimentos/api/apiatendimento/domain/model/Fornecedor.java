@@ -8,8 +8,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,23 +26,15 @@ public class Fornecedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotBlank
     private String nomeFornecedor;
 
-    @NotBlank
     @Enumerated(value = EnumType.STRING)
     private TipoFornecedor tipoFornecedor;
+    
     private String cpf;
     private String cnpj;
-
-    @NotBlank
     private String telefone;
-
-    @NotBlank
-    @Email
     private String email;
-
-    @NotBlank
     private boolean ativo;
 
     public Fornecedor(DtoCadastrarFornecedor dados){
@@ -52,6 +42,7 @@ public class Fornecedor {
         if(ehFornecedorPessoaFisica(dados)){
             this.cpf = dados.cpf();
         }
+        this.tipoFornecedor = dados.tipoFornecedor();
         this.cnpj = dados.cnpj();
         this.telefone = dados.telefone();
         this.email = dados.email();

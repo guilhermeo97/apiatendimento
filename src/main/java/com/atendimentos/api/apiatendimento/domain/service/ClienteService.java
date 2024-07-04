@@ -4,8 +4,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 import org.springframework.data.domain.Page;
 
 import com.atendimentos.api.apiatendimento.domain.exception.EntidadeNaoEncontradaException;
@@ -37,20 +35,17 @@ public class ClienteService {
         return clienteRepository.findAll(paginacao);
     }
 
-    public Optional<Cliente> listarCliente(Long id){
-        return clienteRepository.findById(id);
+    public Cliente listarCliente(Long id){
+        return clienteRepository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente não encontrado com id: " + id));
     }
 
     public void inativarCliente(Long id){
-        Cliente cliente = this.buscar(id);
+        Cliente cliente = this.listarCliente(id);
     
         cliente.setAtivo(false); // Supondo que o Cliente tem um campo `ativo` do tipo boolean
         clienteRepository.save(cliente);
 
     }
 
-    public Cliente buscar(Long id){
-        return clienteRepository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente não encontrado com id: " + id));
-    }
 
 }

@@ -20,7 +20,6 @@ import com.atendimentos.api.apiatendimento.api.model.input.DtoAtualizarCliente;
 import com.atendimentos.api.apiatendimento.api.model.input.DtoCadastroCliente;
 import com.atendimentos.api.apiatendimento.api.model.output.DtoDetalhamentoCliente;
 import com.atendimentos.api.apiatendimento.api.model.output.DtoListaCliente;
-import com.atendimentos.api.apiatendimento.domain.exception.EntidadeNaoEncontradaException;
 import com.atendimentos.api.apiatendimento.domain.model.Cliente;
 import com.atendimentos.api.apiatendimento.domain.service.ClienteService;
 
@@ -47,19 +46,19 @@ public class ClienteController {
     @GetMapping
     public  ResponseEntity<Page<DtoListaCliente>> listarClientes(@PageableDefault(size = 10, sort = {"nomeCliente"}) Pageable paginacao){
         var page = clienteService.listarClientes(paginacao).map(DtoListaCliente::new);
-        return ResponseEntity.ok(page);
+        return ResponseEntity.ok().body(page);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<DtoDetalhamentoCliente> listarCliente(@PathVariable Long id){
-        Cliente cliente = clienteService.listarCliente(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente não existe"));
-        return ResponseEntity.ok(new DtoDetalhamentoCliente(cliente));
+        Cliente cliente = clienteService.listarCliente(id);
+        return ResponseEntity.ok().body(new DtoDetalhamentoCliente(cliente));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity inativarCliente(@PathVariable Long id){
-        Cliente cliente = clienteService.listarCliente(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente não existe"));
+    public ResponseEntity<Void> inativarCliente(@PathVariable Long id){
+        Cliente cliente = clienteService.listarCliente(id);
         cliente.excluir();
         return ResponseEntity.noContent().build();
     }
@@ -67,7 +66,7 @@ public class ClienteController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<DtoDetalhamentoCliente> atualizar(@PathVariable Long id, @RequestBody @Valid DtoAtualizarCliente dados) {
-        Cliente cliente = clienteService.listarCliente(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente não existe"));
+        Cliente cliente = clienteService.listarCliente(id);
         cliente.atualizarInformacoes(dados);
         clienteService.salvar(cliente);
         return ResponseEntity.ok(new DtoDetalhamentoCliente(cliente));

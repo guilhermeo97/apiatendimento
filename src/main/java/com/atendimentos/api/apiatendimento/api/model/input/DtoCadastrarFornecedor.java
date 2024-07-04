@@ -2,17 +2,15 @@ package com.atendimentos.api.apiatendimento.api.model.input;
 
 import com.atendimentos.api.apiatendimento.domain.model.TipoFornecedor;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record DtoCadastrarFornecedor(
     @NotBlank(message = "Campo obrigatório.")
     String nomeFornecedor,
 
-    @NotBlank(message = "Campo obrigatório.")
-    @Enumerated(value = EnumType.STRING)
+    @NotNull(message = "Campo obrigatório.")
     TipoFornecedor tipoFornecedor,
     
     String cpf,
@@ -24,7 +22,6 @@ public record DtoCadastrarFornecedor(
     @NotBlank
     @Email
     String email
-
 ) {
     
 }
