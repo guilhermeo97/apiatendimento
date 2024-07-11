@@ -42,7 +42,7 @@ public class ClienteService {
     public void inativarCliente(Long id){
         Cliente cliente = this.listarCliente(id);
     
-        cliente.setAtivo(false); // Supondo que o Cliente tem um campo `ativo` do tipo boolean
+        cliente.excluir();; // Supondo que o Cliente tem um campo `ativo` do tipo boolean
         clienteRepository.save(cliente);
 
     }

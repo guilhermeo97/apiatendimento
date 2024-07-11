@@ -1,5 +1,7 @@
 package com.atendimentos.api.apiatendimento.api.model.input;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import com.atendimentos.api.apiatendimento.domain.model.TipoFornecedor;
 
 import jakarta.validation.constraints.Email;
@@ -19,8 +21,8 @@ public record DtoCadastrarFornecedor(
     @NotBlank
     String telefone,
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "Campo obrigatório.")
+    @Email(message = "Campo deve estar em formato de E-mail")
     String email
 ) {
     

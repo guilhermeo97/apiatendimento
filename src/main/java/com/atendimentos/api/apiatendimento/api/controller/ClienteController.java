@@ -59,7 +59,7 @@ public class ClienteController {
     @Transactional
     public ResponseEntity<Void> inativarCliente(@PathVariable Long id){
         Cliente cliente = clienteService.listarCliente(id);
-        cliente.excluir();
+        clienteService.inativarCliente(cliente.getId());
         return ResponseEntity.noContent().build();
     }
 

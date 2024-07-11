@@ -9,4 +9,5 @@ public record DtoDetalhamentoFornecedor(Long id, String nomeFornecedor, TipoForn
         this(fornecedor.getId(), fornecedor.getNomeFornecedor(), fornecedor.getTipoFornecedor(), 
         fornecedor.getCpf(), fornecedor.getCnpj(), fornecedor.getTelefone(), fornecedor.getEmail());
     }
+
 }
