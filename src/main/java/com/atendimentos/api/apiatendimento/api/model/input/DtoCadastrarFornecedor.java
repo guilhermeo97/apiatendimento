@@ -1,7 +1,5 @@
 package com.atendimentos.api.apiatendimento.api.model.input;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import com.atendimentos.api.apiatendimento.domain.model.TipoFornecedor;
 
 import jakarta.validation.constraints.Email;

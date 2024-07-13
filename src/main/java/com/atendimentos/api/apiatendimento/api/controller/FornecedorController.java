@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.atendimentos.api.apiatendimento.api.model.input.DtoAtualizarCliente;
 import com.atendimentos.api.apiatendimento.api.model.input.DtoAtualizarFornecedor;
 import com.atendimentos.api.apiatendimento.api.model.input.DtoCadastrarFornecedor;
 import com.atendimentos.api.apiatendimento.api.model.output.DtoDetalhamentoFornecedor;

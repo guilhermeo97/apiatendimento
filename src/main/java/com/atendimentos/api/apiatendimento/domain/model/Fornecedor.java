@@ -1,6 +1,5 @@
 package com.atendimentos.api.apiatendimento.domain.model;
 
-import com.atendimentos.api.apiatendimento.api.model.input.DtoAtualizarFornecedor;
 import com.atendimentos.api.apiatendimento.api.model.input.DtoCadastrarFornecedor;
 
 import jakarta.persistence.Entity;
@@ -58,28 +57,28 @@ public class Fornecedor {
         this.ativo = false;
     }
 
-    public void atualizarInformacoes(Fornecedor dados) {
-        if(dados.getNomeFornecedor() != null){
-            this.setNomeFornecedor(dados.getNomeFornecedor());
-        }
-        if(dados.getTelefone() != null){
-            this.setTelefone(dados.getTelefone());
-        }   
-        if(dados.getCpf() != null){
-            this.setCpf(dados.getCpf());
-        }
+    // public void atualizarInformacoes(Fornecedor dados) {
+    //     if(dados.getNomeFornecedor() != null){
+    //         this.setNomeFornecedor(dados.getNomeFornecedor());
+    //     }
+    //     if(dados.getTelefone() != null){
+    //         this.setTelefone(dados.getTelefone());
+    //     }   
+    //     if(dados.getCpf() != null){
+    //         this.setCpf(dados.getCpf());
+    //     }
 
-        if(dados.getCnpj() != null){
-            this.setCnpj(dados.getCnpj());
-        }
-        if(dados.getEmail() != null){
-            this.setEmail(dados.getEmail());
-        }
+    //     if(dados.getCnpj() != null){
+    //         this.setCnpj(dados.getCnpj());
+    //     }
+    //     if(dados.getEmail() != null){
+    //         this.setEmail(dados.getEmail());
+    //     }
 
-        if(dados.getTipoFornecedor() != null){
-            this.setTipoFornecedor(dados.getTipoFornecedor());
-        }
-    }
+    //     if(dados.getTipoFornecedor() != null){
+    //         this.setTipoFornecedor(dados.getTipoFornecedor());
+    //     }
+    // }
 }
 
 // String nomeFornecedor,
