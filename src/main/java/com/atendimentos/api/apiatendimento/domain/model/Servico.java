@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 
+import com.atendimentos.api.apiatendimento.api.model.input.DtoCadastrarServico;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,4 +42,14 @@ public class Servico {
 
     private boolean ativo;
 
+
+    public void inativar() {
+        this.ativo = false;
+    }
+
+    public Servico(DtoCadastrarServico dados){
+        this.nomeServico = dados.nomeServico().trim();
+        this.fornecedor = dados.fornecedor();
+        this.custoServico = dados.custoServico();
+    }
 }

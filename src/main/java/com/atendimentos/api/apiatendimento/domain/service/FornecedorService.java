@@ -60,6 +60,7 @@ public class FornecedorService {
         return fornecedorRepository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente não encontrado com id: " + id));
     }
 
+    @Transactional
     public void inativarFornecedor(Long id){
         //busca o fornecedor e cria uma instância se for encontrado
         Fornecedor fornecedor = this.listarFornecedor(id);

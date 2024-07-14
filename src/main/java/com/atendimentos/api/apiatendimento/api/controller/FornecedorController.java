@@ -37,7 +37,7 @@ public class FornecedorController {
     public ResponseEntity<DtoDetalhamentoFornecedor> cadastrar(@Valid @RequestBody DtoCadastrarFornecedor dados, UriComponentsBuilder uriBuilder){
         Fornecedor fornecedor = new Fornecedor(dados);
         fornecedorService.salvar(fornecedor);
-        var uri = uriBuilder.path("/clientes/{id}").buildAndExpand(fornecedor.getId()).toUri();
+        var uri = uriBuilder.path("/fornecedores/{id}").buildAndExpand(fornecedor.getId()).toUri();
         return ResponseEntity.created(uri).body(new DtoDetalhamentoFornecedor(fornecedor));
     }
 
