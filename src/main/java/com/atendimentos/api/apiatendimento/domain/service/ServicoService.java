@@ -32,6 +32,7 @@ public class ServicoService {
         return servicoRepository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException("Serviço não encontrado para esse Fornecedor."));
     }
 
+    @Transactional
     public Servico atualizarServico(Long id, DtoAtualizarServico servicoAtualizado){
         Servico servico = this.listarServico(id);
         if(servicoAtualizado.nomeServico() != null){

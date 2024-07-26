@@ -6,6 +6,7 @@ import com.atendimentos.api.apiatendimento.domain.model.Fornecedor;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record DtoCadastrarServico(
     
@@ -15,7 +16,7 @@ public record DtoCadastrarServico(
     @Valid
     Fornecedor fornecedor,
 
-    @NotBlank
+    @NotNull
     BigDecimal custoServico
 ) {
     

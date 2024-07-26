@@ -64,7 +64,7 @@ public class FornecedorController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<DtoDetalhamentoFornecedor> atualizarFornecedor(@PathVariable Long id, @RequestBody @Valid DtoAtualizarFornecedor dados){
-        Fornecedor fornecedorAtualizado =fornecedorService.atualizarFornecedor(id, dados);
+        Fornecedor fornecedorAtualizado = fornecedorService.atualizarFornecedor(id, dados);
         return ResponseEntity.ok().body(new DtoDetalhamentoFornecedor(fornecedorAtualizado));
     }
 }
