@@ -57,4 +57,6 @@ public class Atendimento {
         this.dataFim = dados.dataFim();
         this.statusAtendimento = StatusAtendimento.AGENDADO;
     }
+
+    
 }
